@@ -1,99 +1,131 @@
-Progetto Accademico – Base Dati per Farmaci, Principi Attivi e Interazioni Farmacologiche
-Descrizione del progetto
-Questo progetto consiste nella progettazione, implementazione e sperimentazione di una base di dati relazionale per la gestione di:
+# Sistema di Gestione dei Farmaci e delle Interazioni
 
-Farmaci (nome, categoria terapeutica, descrizione)
-Principi attivi (nome e descrizione)
-Interazioni farmacologiche tra due farmaci (descrizione e livello di gravità: Bassa / Media / Grave)
+![PHP](https://img.shields.io/badge/PHP-7.4%2B-777BB4?style=flat-square&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-5.7%2B-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=flat-square&logo=bootstrap&logoColor=white)
+![Status](https://img.shields.io/badge/Stato-Sperimentale-orange?style=flat-square)
+![License](https://img.shields.io/badge/Licenza-Educativa-lightgrey?style=flat-square)
 
-L’obiettivo principale è consentire la consultazione e la gestione delle informazioni relative ai possibili effetti avversi derivanti dall’assunzione contemporanea di più medicinali, 
-con particolare attenzione alla sicurezza del paziente.
-Il sistema è stato sviluppato come progetto sperimentale accademico** e include:
+**Progetto sperimentale di progettazione e implementazione di una base di dati relazionale** dedicata alla gestione di farmaci, principi attivi e interazioni farmacologiche.
 
-1. Analisi dei requisiti funzionali e non funzionali
-2. Modellazione concettuale (diagramma Entità-Relazione)
-3. Conversione in schema relazionale
-4. Implementazione completa in SQL (DDL, DML, interrogazioni, join, aggregazioni, subquery, DCL)
-5. Sperimentazione su database reale (MySQL)
-6. Realizzazione di un’interfaccia web in PHP + HTML + Bootstrap per interagire con i dati
+Il sistema consente di memorizzare, consultare e aggiornare informazioni relative ai farmaci e alle possibili interazioni derivanti dalla loro assunzione combinata, con particolare attenzione agli effetti avversi.
 
-Struttura del database Tabelle principali
+> **Avvertenza**  
+> Questo progetto è stato realizzato esclusivamente a scopo didattico e sperimentale.  
+> Non è destinato all’utilizzo in ambito clinico o professionale.
 
-Tabella               Descrizione                                                                 
-`farmaco`             Contiene i medicinali (ID, nome, categoria terapeutica, descrizione)       
- `principio_attivo`    Contiene i principi attivi (ID, nome, descrizione)                         
- `interazione`         Contiene le interazioni tra due farmaci (farmaco A, farmaco B, descrizione, livello di gravità) 
+---
 
-Sono presenti chiavi primarie, chiavi esterne e vincoli di integrità referenziale (CASCADE sulle eliminazioni).
-Il file di dump completo del database di test è: `farmaco_test.sql`
- Tecnologie utilizzate
-- Database: MySQL / MariaDB
-- Backend: PHP (mysqli)
-- Frontend: HTML5 + Bootstrap 5 + Bootstrap Icons
-- Ambiente di sviluppo: XAMPP / locale (localhost)
-- Documentazione: Microsoft Word (documento completo di progetto)
+## Obiettivi del progetto
 
-Struttura dei file
-PROGETTO_FARMACO/
-connessione.php              # Connessione al database MySQL
-farmaci.php                  # Visualizzazione elenco farmaci
-farmaco.php                  # Dettaglio singolo farmaco
-principi_attivi.php          # Visualizzazione principi attivi
-interazioni.php              # Visualizzazione interazioni farmacologiche
-ricerca_farmaco.php          # Funzionalità di ricerca
-inserisci_interazione.php    # Form di inserimento nuova interazione
-MENU1.php                    # Prototipo interfaccia 1.0
-MENU2.php                    # Prototipo interfaccia 2.0 (versione più completa con Bootstrap)
-TEST*.php                    # File di prova e prototipi precedenti
-farmaco_test.sql             # Dump completo del database di test
-PROGETTO-ACCADEMICO.docx     # Documentazione completa del progetto
+Il lavoro documenta l’intero ciclo di sviluppo di un sistema informativo, articolato nelle seguenti fasi metodologiche:
 
-Funzionalità implementate
-- Visualizzazione elenco farmaci, principi attivi e interazioni
-- Ricerca di farmaci
-- Inserimento di nuove interazioni farmacologiche tramite form
-- Controllo di base (non è possibile inserire un’interazione tra lo stesso farmaco)
-- Interfaccia web responsive basata su Bootstrap
-- Gestione delle relazioni tramite JOIN
-- Operazioni di base CRUD e interrogazioni avanzate documentate nel file SQL e nella documentazione
+1. **Analisi dei requisiti** — definizione degli obiettivi funzionali e non funzionali
+2. **Modellazione concettuale** — progettazione del modello Entità-Relazione
+3. **Progettazione logica** — traduzione in schema relazionale con vincoli di integrità
+4. **Implementazione** — realizzazione del database e dell’interfaccia web
+5. **Sperimentazione e valutazione** — test funzionali e analisi dei risultati
 
- Come avviare il progetto (ambiente locale)
-1. Installare XAMPP (o equivalente con Apache + MySQL + PHP)
-2. Creare un database chiamato `farmaco_test`
-3. Importare il file `farmaco_test.sql` tramite phpMyAdmin
-4. Copiare la cartella `PROGETTO_FARMACO` nella directory `htdocs`
-5. Avviare Apache e MySQL
-6. Aprire nel browser: `http://localhost/PROGETTO_FARMACO/MENU2.php` (o il file di menu preferito)
+L’interfaccia è stata sviluppata in modo incrementale, partendo da prototipi semplici fino a raggiungere versioni strutturate e usabili.
 
-Credenziali di default (file `connessione.php`):
-- Host: `localhost`
-- User: `root`
-- Password: (vuota)
-- Database: `farmaco_test`
+## Note tecniche e di sicurezza
 
- Documentazione completa
+Le versioni ufficiali (TEST.php, TEST2.php, TEST3.php) utilizzano prepared statements.
+I file prototipo e le versioni storiche contengono query realizzate mediante concatenazione di stringhe e presentano vulnerabilità note (SQL Injection). Sono stati mantenuti esclusivamente a scopo didattico e di documentazione dell’evoluzione del codice.
+Il sistema non implementa meccanismi di autenticazione, gestione delle sessioni o protezione CSRF.
+L’utilizzo in ambienti di produzione non è raccomandato senza interventi di hardening.
 
-Il file `PROGETTO-ACCADEMICO.docx` contiene l’intera documentazione del progetto, suddivisa in:
-- Introduzione e obiettivi
-- Analisi dei requisiti
-- Modellazione E/R (entità, relazioni, diagrammi)
-- Schema relazionale
-- Implementazione SQL completa (DDL, DML, SELECT, JOIN, aggregazioni, subquery, DCL)
-- Sperimentazione su database reale
-- Implementazione dell’applicazione web (PHP/HTML)
-- Screenshot e codici sorgente
-- Conclusioni
+---
 
-Questo è un progetto sperimentale/accademico:
+## Funzionalità
 
-- Capacità di analisi e progettazione di una base di dati
-- Conoscenza di SQL e modellazione relazionale
-- Capacità di realizzare un’interfaccia web funzionante collegata a un database
-- Attenzione a un dominio sensibile (sanitario / farmaceutico)
+### Versione ufficiale
 
-Limitazioni attuali:
-- Dati di test (non reali)
-- Assenza di autenticazione utenti / sistema di login
-- Assenza di validazione avanzata e protezione completa da SQL Injection (utilizzo di query non preparate in alcune parti)
-- Mancanza di alcune tabelle di associazione complete (farmaco ↔ principio attivo) nel dump fornito
-- Interfaccia ancora in fase di prototipo
+| Modulo                    | File        | Descrizione                                              |
+|---------------------------|-------------|----------------------------------------------------------|
+| Visualizzazione completa  | `TEST.php`  | Elenco integrato di farmaci, principi attivi e interazioni (con JOIN) |
+| Ricerca avanzata          | `TEST2.php` | Ricerca per nome e verifica delle interazioni di un farmaco |
+| Inserimento dati          | `TEST3.php` | Inserimento controllato di farmaci, principi attivi e interazioni |
+
+### Versioning e prototipi
+
+Sono state conservate le versioni precedenti del codice (`*_VECCHIO_CODICE.php`) e i prototipi iniziali, al fine di documentare l’evoluzione tecnica e metodologica del progetto.
+
+| Prototipo                     | File                        |
+|-------------------------------|-----------------------------|
+| Elenco farmaci                | `farmaci.php`               |
+| Elenco principi attivi        | `principi_attivi.php`       |
+| Elenco interazioni            | `interazioni.php`           |
+| Ricerca farmaco               | `ricerca_farmaco.php`       |
+| Inserimento interazione       | `inserisci_interazione.php` |
+
+---
+
+## Stack tecnologico
+
+| Livello          | Tecnologia                          |
+|------------------|-------------------------------------|
+| Backend          | PHP 7.4+ (MySQLi)                   |
+| Database         | MySQL / MariaDB                     |
+| Frontend         | HTML5, CSS3, Bootstrap 5            |
+| Icone            | Bootstrap Icons                     |
+| Sicurezza        | Prepared Statements (versioni ufficiali) |
+
+---
+
+## Schema del database
+
+### Tabella `farmaco`
+
+| Campo                    | Tipo             | Descrizione                    |
+|--------------------------|------------------|--------------------------------|
+| `ID_FARMACO`             | INT (PK, AI)     | Identificativo univoco         |
+| `NOME_FARMACO`           | VARCHAR(100)     | Nome commerciale del farmaco   |
+| `CATEGORIA_TERAPEUTICA`  | VARCHAR(100)     | Categoria terapeutica          |
+| `DESCRIZIONE`            | TEXT             | Descrizione                    |
+| `TOTALE_FARMACI`         | INT              | Quantità (campo opzionale)     |
+
+### Tabella `principio_attivo`
+
+| Campo                    | Tipo             | Descrizione                    |
+|--------------------------|------------------|--------------------------------|
+| `ID_PRINCIPIO_ATTIVO`    | INT (PK, AI)     | Identificativo univoco         |
+| `NOME_PRINCIPIO`         | VARCHAR(100)     | Nome del principio attivo      |
+| `DESCRIZIONE`            | TEXT             | Descrizione                    |
+
+### Tabella `interazione`
+
+| Campo                      | Tipo             | Descrizione                          |
+|----------------------------|------------------|--------------------------------------|
+| `ID_INTERAZIONE`           | INT (PK, AI)     | Identificativo univoco               |
+| `ID_FARMACO_A`             | INT (FK)         | Riferimento al primo farmaco         |
+| `ID_FARMACO_B`             | INT (FK)         | Riferimento al secondo farmaco       |
+| `DESCRIZIONE_INTERAZIONE`  | TEXT             | Descrizione dell’interazione         |
+| `LIVELLO_GRAVITA`          | VARCHAR(50)      | Bassa · Media · Grave                |
+
+Sono presenti vincoli di integrità referenziale sulle chiavi esterne della tabella `interazione`.
+
+## Installazione
+
+### Requisiti
+
+- PHP ≥ 7.4
+- MySQL 5.7+ o MariaDB
+- Server web (Apache / Nginx) oppure ambiente XAMPP / WAMP / LAMP
+
+### Procedura
+
+1. Creare un database denominato `farmaco_test`
+2. Importare il file `farmaco_test.sql`
+3. Configurare le credenziali di accesso nel file `connessione.php`:
+4. Posizionare tutti i file nella directory del server web
+5. Avviare i servizi Apache e MYSQL
+6. Accedere all' applicazione all' indirizzo:
+7. http://localhost/nome-cartella/MENU2.php
+
+```php
+$host     = "localhost";
+$user     = "root";
+$password = "";
+$dbname   = "farmaco_test";   
+
