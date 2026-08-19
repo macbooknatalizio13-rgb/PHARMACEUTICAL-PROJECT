@@ -1,4 +1,4 @@
-# Sistema di Gestione dei Farmaci e delle Interazioni
+# Sistema di Gestione dei Farmaci e delle Interazioni (16\12\2025)
 
 ![PHP](https://img.shields.io/badge/PHP-7.4%2B-777BB4?style=flat-square&logo=php&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-5.7%2B-4479A1?style=flat-square&logo=mysql&logoColor=white)
